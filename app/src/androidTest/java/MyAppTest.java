@@ -20,7 +20,7 @@ import static junit.framework.Assert.fail;
 public class MyAppTest implements EndpointsAsyncTask.OnDataDeliver {
 
     EndpointsAsyncTask endpointsAsyncTask;
-    String Joke = null;
+    String joke = null;
 
     @Test
     public void testAsyncTask() {
@@ -28,9 +28,9 @@ public class MyAppTest implements EndpointsAsyncTask.OnDataDeliver {
         endpointsAsyncTask = new EndpointsAsyncTask(this);
         try {
             endpointsAsyncTask.execute();
-            Joke = endpointsAsyncTask.get();
-            assertEquals(Joke, "Monica's Joke App :D");
-            assertNotNull(Joke);
+            joke = endpointsAsyncTask.get();
+            assertEquals(joke, "Monica's Joke App :D");
+            assertNotNull(joke);
 
 
         } catch (Exception e) {
@@ -45,6 +45,6 @@ public class MyAppTest implements EndpointsAsyncTask.OnDataDeliver {
 
     @Override
     public void onDataDeliver(String data) {
-        Joke = data;
+        joke = data;
     }
 }
